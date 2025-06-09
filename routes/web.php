@@ -81,30 +81,29 @@ Route::post('/logout', [CustomerController::class, 'logout'])
 
 // Group route untuk customer
 Route::middleware('is.customer')->group(function () {
-// Route untuk menampilkan halaman akun customer
-Route::get('/customer/akun/{id}', [CustomerController::class, 'akun'])
-->name('customer.akun');
+    // Route untuk menampilkan halaman akun customer
+    Route::get('/customer/akun/{id}', [CustomerController::class, 'akun'])
+        ->name('customer.akun');
 
-// Route untuk mengupdate data akun customer
-Route::put('/customer/updateakun/{id}', [CustomerController::class, 'updateAkun'])
-->name('customer.updateakun');
+    // Route untuk mengupdate data akun customer
+    Route::put('/customer/updateakun/{id}', [CustomerController::class, 'updateAkun'])
+        ->name('customer.updateakun');
 
-// Route untuk menambahkan produk ke keranjang
-Route::post('add-to-cart/{id}', [OrderController::class, 'addToCart'])
-->name('order.addToCart');
-Route::get('cart', [OrderController::class, 'viewCart'])
-->name('order.cart');
-Route::post('cart/update/{id}', [OrderController::class, 'updateCart'])
-->name('order.updateCart');
-Route::post('remove/{id}', [OrderController::class, 'removeFromCart'])
-->name('order.remove'); 
-Route::post('select-shipping', [OrderController::class, 'selectShipping'])
-->name('order.select-shipping');
-Route::post('update-ongkir', [OrderController::class, 'updateOngkir'])
-->name('order.update-ongkir');
-Route::get('select-payment', [OrderController::class, 'selectPayment'])
-->name('order.selectpayment');
-}); 
+    // Route untuk menambahkan produk ke keranjang
+    Route::post('add-to-cart/{id}', [OrderController::class, 'addToCart'])->name('order.addToCart');
+    Route::get('cart', [OrderController::class, 'viewCart'])->name('order.cart');
+    Route::post('cart/update/{id}', [OrderController::class, 'updateCart'])->name('order.updateCart');
+    Route::post('remove/{id}', [OrderController::class, 'removeFromCart'])->name('order.remove');
+    Route::post('select-shipping', [OrderController::class, 'selectShipping'])->name('order.select-shipping');
+    Route::post('update-ongkir', [OrderController::class, 'updateOngkir'])->name('order.update-ongkir');
+    //midtrans
+    Route::get('select-payment', [OrderController::class, 'selectPayment'])->name('order.selectpayment');
+    Route::post('/midtrans-callback', [OrderController::class, 'callback']);
+    Route::get('/order/complete', [OrderController::class, 'complete'])->name('order.complete');
+    // Route history
+    Route::get('history', [OrderController::class, 'orderHistory'])->name('order.history');
+    Route::get('order/invoice/{id}', [OrderController::class, 'invoiceFrontend'])->name('order.invoice');
+});
 
 Route::get('/rajaongkir_list1', function () {
     $response = Http::withHeaders([

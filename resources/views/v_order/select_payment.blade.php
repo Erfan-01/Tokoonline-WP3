@@ -8,13 +8,13 @@
         </div>
         @if(session()->has('success'))
         <div class="alert alert-success alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <button type="button" class="close" data-dismiss="alert" arialabel="Close"><span aria-hidden="true">&times;</span></button>
             <strong>{{ session('success') }}</strong>
         </div>
         @endif
         @if(session()->has('error'))
         <div class="alert alert-danger alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <button type="button" class="close" data-dismiss="alert" arialabel="Close"><span aria-hidden="true">&times;</span></button>
             <strong>{{ session('error') }}</strong>
         </div>
         @endif
@@ -27,7 +27,6 @@
                     <th class="text-center">Harga</th>
                     <th class="text-center">Quantity</th>
                     <th class="text-center">Total</th>
-
                 </tr>
             </thead>
             <tbody>
@@ -41,7 +40,7 @@
                 $totalBerat += $item->produk->berat * $item->quantity;
                 @endphp
                 <tr>
-                    <td class="thumb"><img src="{{ asset('storage/img-produk/thumb_sm_' . $item->produk->foto) }}" alt=""></td>
+                    <td class="thumb"><img src="{{ asset('storage/img-produk/thumb_sm_' .$item->produk->foto) }}" alt=""></td>
                     <td class="details">
                         <a>{{ $item->produk->nama_produk }}</a>
                         <ul>
@@ -56,7 +55,6 @@
                         <a> {{ $item->quantity }} </a>
                     </td>
                     <td class="total text-center"><strong class="primary-color">Rp. {{ number_format($item->harga * $item->quantity, 0, ',', '.') }}</strong></td>
-
                 </tr>
                 @endforeach
             </tbody>
@@ -75,7 +73,6 @@
                         @if(session('origin'))
                         <p>Kota asal: {{ $originName }} </p>
                         @endif
-
                     </td>
                 </tr>
                 <tr>
@@ -85,7 +82,6 @@
                 </tr>
             </tfoot>
         </table>
-
         <input type="hidden" name="total_price" value="{{ $totalHarga }}">
         <input type="hidden" name="total_weight" value="{{ $totalBerat }}">
         <div class="pull-right">
@@ -96,6 +92,27 @@
         @endif
     </div>
 </div>
-<!-- 
-
+<script type="text/javascript">
+    var payButton = document.getElementById('pay-button');
+    payButton.addEventListener('click', function() {
+        window.snap.pay('{{ $snapToken }}', {
+            onSuccess: function(result) {
+                alert("payment success!");
+                console.log(result);
+                window.location.href = "{{ route('order.complete') }}";
+            },
+            onPending: function(result) {
+                alert("waiting for your payment!");
+                console.log(result);
+            },
+            onError: function(result) {
+                alert("payment failed!");
+                console.log(result);
+            },
+            onClose: function() {
+                alert('you closed the popup without finishing the payment');
+            }
+        });
+    });
+</script>
 @endsection
