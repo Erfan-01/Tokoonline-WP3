@@ -19,13 +19,13 @@ class User extends Authenticatable
      */
     protected $table = "user";
     protected $fillable = [
-    'nama',
-    'email',
-    'role',
-    'status',
-    'password',
-    'hp',
-    'foto',
+        'nama',
+        'email',
+        'role',
+        'status',
+        'password',
+        'hp',
+        'foto',
     ];
 
     /**
@@ -46,4 +46,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function customer()
+    {
+        return $this->hasOne(Customer::class);
+    }
 }
