@@ -1,7 +1,6 @@
 @extends('v_layouts.app')
 @section('content')
 <!-- template -->
-
 <div class="col-md-12" hidden>
     <div class="order-summary clearfix">
         <div class="section-title">
@@ -54,7 +53,6 @@
         @endif
     </div>
 </div>
-
 <div class="col-md-12">
     <div class="order-summary clearfix">
         <div class="section-title">
@@ -66,7 +64,6 @@
             <input type="hidden" id="city_origin" name="city_origin" value="">
             <input type="hidden" id="city_origin_name" name="city_origin_name" value="">
             <!-- /Kota Asal -->
-
             <div class="form-group">
                 <label for="province">Provinsi Tujuan:</label>
                 <select name="province" id="province" class="input">
@@ -103,7 +100,6 @@
             </div>
             <button type="submit" class="primary-btn">Cek Ongkir</button>
         </form>
-
         <br>
         <div id="result">
             <table class="shopping-cart-table table">
@@ -124,15 +120,12 @@
         </div>
     </div>
 </div>
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const originCityCode = 115; //ganti disini untuk kode kota asal 
-        const originCityName = 'Depok'; //ganti disini untuk nama kota asal 
-
+        const originCityCode = 365; //ganti disini untuk kode kota asal
+        const originCityName = 'Pontianak'; //ganti disini untuk nama kota asal
         document.getElementById('city_origin').value = originCityCode;
         document.getElementById('city_origin_name').value = originCityName;
-
         // Load provinces
         fetch('/provinces')
             .then(response => response.json())
@@ -147,26 +140,25 @@
                         provinceSelect.appendChild(option);
                     });
                 } else {
-                    console.error('Failed to fetch provinces', data.rajaongkir.status.description);
+                    console.error('Failed to fetch provinces',
+                        data.rajaongkir.status.description);
                 }
             })
             .catch(error => {
                 console.error('Error fetching provinces:', error);
             });
-
         // Load cities based on selected province
         document.getElementById('province').addEventListener('change', function() {
             let provinceId = this.value;
             let provinceName = this.options[this.selectedIndex].text;
             document.getElementById('province_name').value = provinceName;
-
             fetch(`/cities?province_id=${provinceId}`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.rajaongkir.status.code === 200) {
                         let cities = data.rajaongkir.results;
                         let citySelect = document.getElementById('city');
-                        citySelect.innerHTML = '<option value="">Pilih Kota Tujuan</option>'; // Clear previous options
+                        citySelect.innerHTML = '<option value="">Pilih Kota Tujuan</option>';
                         cities.forEach(city => {
                             let option = document.createElement('option');
                             option.value = city.city_id;
@@ -174,19 +166,18 @@
                             citySelect.appendChild(option);
                         });
                     } else {
-                        console.error('Failed to fetch cities', data.rajaongkir.status.description);
+                        console.error('Failed to fetch cities',
+                            data.rajaongkir.status.description);
                     }
                 })
                 .catch(error => {
                     console.error('Error fetching cities:', error);
                 });
         });
-
         document.getElementById('city').addEventListener('change', function() {
             let cityName = this.options[this.selectedIndex].text;
             document.getElementById('city_name').value = cityName;
         });
-
         // Handle form submission for shipping cost check
         document.getElementById('shippingForm').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -197,18 +188,15 @@
             let courier = document.getElementById('courier').value;
             let alamat = document.getElementById('alamat').value;
             let kodePos = document.getElementById('kode_pos').value;
-
             // Validasi alamat dan kode pos
             if (!alamat.trim() || !kodePos.trim()) {
                 alert('Harap lengkapi alamat dan kode pos sebelum mengecek ongkir.');
                 return;
             }
-
             if (!origin || !originName || !destination || !weight || !courier) {
                 alert('Harap lengkapi semua kolom sebelum mengecek ongkir.');
                 return;
             }
-
             fetch('/cost', {
                     method: 'POST',
                     headers: {
@@ -237,29 +225,31 @@
                                 <td>${weight} Gram</td>
                                 <td>Rp. {{ number_format($totalHarga, 0, ',', '.') }}</td>
                                 <td>
-                                    <form action="{{ route('order.update-ongkir') }}" method="post">
-                                        @csrf
-                                        <input type="hidden" name="province" value="${document.getElementById('province').value}">
-                                        <input type="hidden" name="city" value="${document.getElementById('city').value}">
-                                        <input type="hidden" name="province_name" value="${document.getElementById('province_name').value}">
-                                        <input type="hidden" name="city_name" value="${document.getElementById('city_name').value}">
-                                        <input type="hidden" name="kurir" value="${courier}">
-                                        <input type="hidden" name="alamat" value="${alamat}">
-                                        <input type="hidden" name="pos" value="${kodePos}">
-                                        <input type="hidden" name="layanan_ongkir" value="${cost.service}">
-                                        <input type="hidden" name="biaya_ongkir" value="${cost.cost[0].value}">
-                                        <input type="hidden" name="estimasi_ongkir" value="${cost.cost[0].etd}">
-                                        <input type="hidden" name="total_berat" value="${weight}">
-                                        <input type="hidden" name="city_origin" value="${origin}">
-                                        <input type="hidden" name="city_origin_name" value="${originName}">
-                                        <button type="submit" class="primary-btn">Pilih Pengiriman</button>
-                                    </form>
+                                <form action="{{ route('order.update-ongkir') }}"
+                                method="post">
+                                @csrf
+                                <input type="hidden" name="province" value="${document.getElementById('province').value}">
+                                <input type="hidden" name="city" value="${document.getElementById('city').value}">
+                                <input type="hidden" name="province_name" value="${document.getElementById('province_name').value}">
+                                <input type="hidden" name="city_name" value="${document.getElementById('city_name').value}">
+                                <input type="hidden" name="kurir" value="${courier}">
+                                <input type="hidden" name="alamat" value="${alamat}">
+                                <input type="hidden" name="pos" value="${kodePos}">
+                                <input type="hidden" name="layanan_ongkir" value="${cost.service}">
+                                <input type="hidden" name="biaya_ongkir" value="${cost.cost[0].value}">
+                                <input type="hidden" name="estimasi_ongkir" value="${cost.cost[0].etd}">
+                                <input type="hidden" name="total_berat" value="${weight}">
+                                <input type="hidden" name="city_origin" value="${origin}">
+                                <input type="hidden" name="city_origin_name" value="${originName}">
+                                <button type="submit" class="primary-btn">Pilih Pengiriman</button>
+                                </form>
                                 </td>
-                            `;
+                                `;
                             shippingResults.appendChild(row);
                         });
                     } else {
-                        console.error('Failed to fetch cost', data.rajaongkir.status.description);
+                        console.error('Failed to fetch cost',
+                            data.rajaongkir.status.description);
                     }
                 })
                 .catch(error => {
@@ -268,6 +258,5 @@
         });
     });
 </script>
-
 <!-- end template-->
 @endsection

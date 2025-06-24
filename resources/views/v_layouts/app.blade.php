@@ -378,7 +378,7 @@
                             <li><a href="#">About Us</a></li>
                             <li><a href="#">Shiping & Return</a></li>
                             <li><a href="#">Shiping Guide</a></li>
-                            <li><a href="#">FAQ</a></li>
+                            <li><a href="https://maps.app.goo.gl/kxTvjuN6ULJZgZXA8">FAQ</a></li>
                         </ul>
                     </div>
                 </div>

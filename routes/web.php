@@ -107,7 +107,7 @@ Route::middleware('is.customer')->group(function () {
 
 Route::get('/rajaongkir_list1', function () {
     $response = Http::withHeaders([
-        'key' => '794a5d197b9cb469ae958ed043ccf921'
+        'key' =>'794a5d197b9cb469ae958ed043ccf921'
     ])->get('https://api.rajaongkir.com/starter/province'); //bisa ganti dengan 'province' atau 'city'
     // $statusCode = $response->json()['rajaongkir']['status']['code'];
     // $provisi = $response->json()['rajaongkir']['results'];
@@ -116,8 +116,8 @@ Route::get('/rajaongkir_list1', function () {
 
 Route::get('/rajaongkir_list2', function () {
     $response = Http::withHeaders([
-        'key' => '794a5d197b9cb469ae958ed043ccf921'
-    ])->get('https://api.rajaongkir.com/starter/province'); //bisa ganti dengan 'province' atau 'city'
+        'key' =>'794a5d197b9cb469ae958ed043ccf921'
+    ])->get('https://api.rajaongkir.com/starter/city'); //bisa ganti dengan 'province' atau 'city'
     return $response->json();
 });
 
