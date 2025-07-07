@@ -50,7 +50,7 @@
         <div id="top-header">
             <div class="container">
                 <div class="pull-left">
-                    <span>Selamat datang di toko online</span>
+                    <span>Selamat datang di MarsStore.ID</span>
                 </div>
             </div>
         </div>
@@ -63,7 +63,7 @@
                     <!-- Logo -->
                     <div class="header-logo">
                         <a class="logo" href="#">
-                            <img src="{{ asset('image/logo.png') }}" alt="">
+                            <img src="{{ asset('image/LOGO-MID.jpg') }}" alt="">
                         </a>
                     </div>
                     <!-- /Logo -->
@@ -176,8 +176,8 @@
                     <ul class="menu-list">
                         <li><a href="{{ route('beranda') }}">Beranda</a></li>
                         <li><a href="{{ route('produk.all') }}">Produk</a></li>
-                        <li><a href="#">Lokasi</a></li>
-                        <li><a href="#">Hubungi Kami</a></li>
+                        <li><a href="https://maps.app.goo.gl/kxTvjuN6ULJZgZXA8">Lokasi</a></li>
+                        <li><a href="https://www.instagram.com/eervann____?igsh=eTJ2Z2x0bm55aHJu">Hubungi Kami</a></li>
                     </ul>
                 </div>
                 <!-- menu nav -->
@@ -198,31 +198,41 @@
                 <div id="home-slick">
                     <!-- banner -->
                     <div class="banner banner-1">
-                        <img src="{{ asset('frontend/banner/img_slide01.jpg') }}" alt="">
+                        <img src="{{ asset('frontend/banner/banner01.jpg') }}" alt="">
                         <div class="banner-caption text-center">
-                            <h1>Jajanan Tradisional</h1>
-                            <h3 class="font-weak" style="color: 30323a;">Khas Makanan Indonesia</h3>
-                            <button class="primary-btn">Pesan Sekarang</button>
+                            <h1></h1>
+                            <h3 class="font-weak" style="color: 30323a;"></h3>
+                            <button class="primary-btn"></button>
                         </div>
                     </div>
                     <!-- /banner -->
 
                     <!-- banner -->
                     <div class="banner banner-1">
-                        <img src="{{ asset('frontend/banner/img_slide02.jpg') }}" alt="">
+                        <img src="{{ asset('frontend/banner/banner03.jpg') }}" alt="">
                         <div class="banner-caption">
-                            <h1 class="primary-color">Khas Makanan Indonesia<br><span class="white-color font-weak">Jajanan Tradisional</span></h1>
-                            <button class="primary-btn">Pesan Sekarang</button>
+                            <h1 class="primary-color"><br><span class="white-color font-weak"></span></h1>
+                            <button class="primary-btn"></button>
                         </div>
                     </div>
                     <!-- /banner -->
 
                     <!-- banner -->
                     <div class="banner banner-1">
-                        <img src="{{ asset('frontend/banner/img_slide03.jpg') }}" alt="">
+                        <img src="{{ asset('frontend/banner/banner04.jpg') }}" alt="">
                         <div class="banner-caption">
-                            <h1 style="color: f8694a;">Khas Makanan <span>Indonesia</span></h1>
-                            <button class="primary-btn">Pesan Sekarang</button>
+                            <h1 style="color: f8694a;"><span></span></h1>
+                            <button class="primary-btn"></button>
+                        </div>
+                    </div>
+                    <!-- /banner -->
+
+                    <!-- banner -->
+                    <div class="banner banner-1">
+                        <img src="{{ asset('frontend/banner/banner05.jpg') }}" alt="">
+                        <div class="banner-caption">
+                            <h1 style="color: f8694a;"><span></span></h1>
+                            <button class="primary-btn"></button>
                         </div>
                     </div>
                     <!-- /banner -->
@@ -250,11 +260,11 @@
                         <!-- widget product -->
                         <div class="product product-widget">
                             <div class="product-thumb">
-                                <img src="{{ asset('frontend/img/thumb-product01.jpg') }}" alt="">
+                                <img src="{{ asset('frontend/img/img-01.jpg') }}" alt="">
                             </div>
                             <div class="product-body">
-                                <h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-                                <h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
+                                <h2 class="product-name"><a href="#">MLBB</a></h2>
+                                <h3 class="product-price">Rp.29.000<del class="product-old-price">Rp.32.000</del></h3>
                                 <div class="product-rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -269,11 +279,11 @@
                         <!-- widget product -->
                         <div class="product product-widget">
                             <div class="product-thumb">
-                                <img src="{{ asset('frontend/img/thumb-product01.jpg') }}" alt="">
+                                <img src="{{ asset('frontend/img/img-02.jpg') }}" alt="">
                             </div>
                             <div class="product-body">
-                                <h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-                                <h3 class="product-price">$32.50</h3>
+                                <h2 class="product-name"><a href="#">MLBB</a></h2>
+                                <h3 class="product-price">Rp.15.000</h3>
                                 <div class="product-rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -338,13 +348,13 @@
                         </div>
                         <!-- /footer logo -->
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
+                        <p>Top Up Game Online Cepat, Murah, dan Terpercaya! Kami menyediakan harga terbaik, proses instan, dan dukungan 24/7, semua demi kenyamananmu. Cukup masukkan ID, pilih nominal, bayar, dan item langsung masuk ke akunmu.</p>
 
                         <!-- footer social -->
                         <ul class="footer-social">
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="https://www.instagram.com/eervann____?igsh=eTJ2Z2x0bm55aHJu"><i class="fa fa-instagram"></i></a></li>
                             <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                             <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
                         </ul>
@@ -375,9 +385,9 @@
                     <div class="footer">
                         <h3 class="footer-header">Customer Service</h3>
                         <ul class="list-links">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Shiping & Return</a></li>
-                            <li><a href="#">Shiping Guide</a></li>
+                            <li><a href="https://www.bangjeff.com/id-id/mobile-legends?utm_source=google_ads&utm_campaign=tr+mlbb&gad_source=1&gad_campaignid=17156943736&gbraid=0AAAAAC5dFbFc6fPhPE3cdJ_MG9z9FywIl&gclid=Cj0KCQjw64jDBhDXARIsABkk8J4NpqKZKD288oo_EqXsMbz46jCYOOVBcZ_q2sI3bk-nXw_MqqNc2WkaAsOFEALw_wcB">About Us</a></li>
+                            <li><a href="https://www.bangjeff.com/id-id/mobile-legends?utm_source=google_ads&utm_campaign=tr+mlbb&gad_source=1&gad_campaignid=17156943736&gbraid=0AAAAAC5dFbFc6fPhPE3cdJ_MG9z9FywIl&gclid=Cj0KCQjw64jDBhDXARIsABkk8J4NpqKZKD288oo_EqXsMbz46jCYOOVBcZ_q2sI3bk-nXw_MqqNc2WkaAsOFEALw_wcB">Shiping & Return</a></li>
+                            <li><a href="https://www.bangjeff.com/id-id/mobile-legends?utm_source=google_ads&utm_campaign=tr+mlbb&gad_source=1&gad_campaignid=17156943736&gbraid=0AAAAAC5dFbFc6fPhPE3cdJ_MG9z9FywIl&gclid=Cj0KCQjw64jDBhDXARIsABkk8J4NpqKZKD288oo_EqXsMbz46jCYOOVBcZ_q2sI3bk-nXw_MqqNc2WkaAsOFEALw_wcB">Shiping Guide</a></li>
                             <li><a href="https://maps.app.goo.gl/kxTvjuN6ULJZgZXA8">FAQ</a></li>
                         </ul>
                     </div>
@@ -387,13 +397,13 @@
                 <!-- footer subscribe -->
                 <div class="col-md-3 col-sm-6 col-xs-6">
                     <div class="footer">
-                        <h3 class="footer-header">Stay Connected</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                        <h3 class="footer-header">Kirim Masukan Anda</h3>
+                        <p>No #1 supplier top up game & voucher terlaris, murah, aman legal 100% buka 24 Jam dengan channel pembayaran terlengkap Indonesia.</p>
                         <form>
                             <div class="form-group">
                                 <input class="input" placeholder="Enter Email Address">
                             </div>
-                            <button class="primary-btn">Join Newslatter</button>
+                            <button class="primary-btn">kirm masukan anda</button>
                         </form>
                     </div>
                 </div>
